@@ -1,0 +1,7 @@
+set proxy:
+
+
+
+set http_proxy=http://localhost:8580
+
+set https_proxy=http://localhost:8580

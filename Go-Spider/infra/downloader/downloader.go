@@ -1,12 +1,12 @@
 package downloader
 
 import (
-	"Go-Spider/infra/errors"
+	"GoStudy/Go-Spider/infra/errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 
-	URL "Go-Spider/infra/url"
+	URL "GoStudy/Go-Spider/infra/url"
 
 	"bufio"
 	"io"

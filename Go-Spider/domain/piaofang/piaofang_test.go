@@ -1,7 +1,7 @@
 package piaofang
 
 import (
-	"Go-Spider/infra/url"
+	"GoStudy/Go-Spider/infra/url"
 	"fmt"
 	"testing"
 )

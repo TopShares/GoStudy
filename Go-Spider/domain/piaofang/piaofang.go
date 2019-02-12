@@ -1,8 +1,8 @@
 package piaofang
 
 import (
-	"Go-Spider/infra/downloader"
-	"Go-Spider/infra/errors"
+	"GoStudy/Go-Spider/infra/downloader"
+	"GoStudy/Go-Spider/infra/errors"
 	"fmt"
 	"regexp"
 )

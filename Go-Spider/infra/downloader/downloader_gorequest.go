@@ -1,7 +1,7 @@
 package downloader
 
 import (
-	"Go-Spider/infra/errors"
+	"GoStudy/Go-Spider/infra/errors"
 	"io/ioutil"
 
 	"github.com/parnurzeal/gorequest"
