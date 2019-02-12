@@ -1,13 +1,15 @@
 package fetcher
 
 import (
+	"GoStudy/Go-Spider/infra/errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
 func Fetch(url string)([]byte, error) {
-	request, err := http.Get(url)
+	//request, err := http.Get(url)
+	request, err := http.NewRequest("GET", url, nil)
 	if err != nil{
 		return nil,err
 	}
@@ -15,13 +17,28 @@ func Fetch(url string)([]byte, error) {
 
 
 	//defer resp.Body.Close()
+	//
+	//if request.StatusCode != http.StatusOK {
+	//	return nil, fmt.Errorf("  Wrong status code: %d",request.StatusCode)
+	//}
 
-	if request.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("  worong status code: %d",request.StatusCode)
+	client := http.DefaultClient
+
+	response, err := client.Do(request)
+
+	if err != nil {
+		return nil, fmt.Errorf("  Wrong Response code: %d",errors.ErrorResponse)
+	}
+
+	fmt.Println(response.StatusCode)
+	if response.StatusCode >= 300 && response.StatusCode <= 500 {
+		return nil, fmt.Errorf("  Wrong status code: %d",errors.ErrorStatusCode)
 	}
 
 	//utf8Content := transform.NewReader(resp.Body, simplifiedchinese.GBK.NewDecoder())
-	return ioutil.ReadAll(request.Body)
+
+	return ioutil.ReadAll(response.Body)
+	//return ioutil.ReadAll(request.Body)
 
 	//if ok {
 	//

@@ -38,7 +38,7 @@ func ParseProfile(contents []byte) engine.ParseResult{
 	}
 	arr:=strings.Split(info,"|")
 
-	if len(arr)>2 {
+	if len(arr)>5 {
 		profile.City = arr[0]
 		arr[1] = strings.Replace(arr[1],"岁","",-1)
 		profile.Age,_ = strconv.Atoi(strings.Replace(arr[1], " ", "", -1))

@@ -7,7 +7,7 @@ import (
 
 func TestParseCityList(t *testing.T) {
 	//contents, err := fetcher.Fetch("http://www.zhenai.com/zhenghun")
-	contents, err := ioutil.ReadFile("zhenai.html") //local
+	contents, err := ioutil.ReadFile("citylist_test_data.html") //local
 	if err != nil {
 		panic(err)
 	}
