@@ -12,7 +12,6 @@ func ParseCityList(contents []byte) engine.ParseResult{
 	matches := re.FindAllSubmatch(contents, -1) // return [][][]byte
 
 	result := engine.ParseResult{}
-	limit := 1
 	for _,m:= range matches{
 		result.Items = append(result.Items, "City" + string(m[2])) // city name
 		result.Requests = append(result.Requests, engine.Request{
@@ -23,10 +22,6 @@ func ParseCityList(contents []byte) engine.ParseResult{
 		//	fmt.Printf("%s", subMatch)
 		//}
 		//fmt.Printf("City:%s, URL:%s\n",m[2],m[1])
-		limit--
-		if limit == 0{
-			break
-		}
 	}
 	return result
 	//fmt.Printf("Matches found: %d\n", len(matches))

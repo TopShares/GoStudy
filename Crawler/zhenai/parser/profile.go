@@ -29,12 +29,13 @@ func ParseProfile(contents []byte) engine.ParseResult{
 	//fmt.Println(string(matches[2][1]))
 	//fmt.Println(string(matches[3][1]))
 	//fmt.Println(string(matches[4][1]))
-
-	sex := strings.Replace(string(matches[4][1]),"的动态","",-1)
-	if sex == "他" {
-		profile.Gender = "male"
-	} else {
-		profile.Gender = "female"
+	if len(matches) >4 {
+		sex := strings.Replace(string(matches[4][1]),"的动态","",-1)
+		if sex == "他" {
+			profile.Gender = "male"
+		} else {
+			profile.Gender = "female"
+		}
 	}
 	arr:=strings.Split(info,"|")
 

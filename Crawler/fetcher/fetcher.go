@@ -4,10 +4,15 @@ import (
 	"GoStudy/Go-Spider/infra/errors"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
+//var rateLimiter = time.Tick(10*time.Millisecond)
+
 func Fetch(url string)([]byte, error) {
+	//<-rateLimiter
+	log.Printf(url)
 	//request, err := http.Get(url)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil{
@@ -27,12 +32,12 @@ func Fetch(url string)([]byte, error) {
 	response, err := client.Do(request)
 
 	if err != nil {
-		return nil, fmt.Errorf("  Wrong Response code: %d",errors.ErrorResponse)
+		return nil, fmt.Errorf("%v",errors.ErrorResponse)
 	}
 
-	fmt.Println(response.StatusCode)
+	//fmt.Println(response.StatusCode)
 	if response.StatusCode >= 300 && response.StatusCode <= 500 {
-		return nil, fmt.Errorf("  Wrong status code: %d",errors.ErrorStatusCode)
+		return nil, fmt.Errorf("  Wrong status code: %v",errors.ErrorStatusCode)
 	}
 
 	//utf8Content := transform.NewReader(resp.Body, simplifiedchinese.GBK.NewDecoder())
