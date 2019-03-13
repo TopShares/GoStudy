@@ -1,7 +1,35 @@
 set proxy:
 
-
-
 set http_proxy=http://localhost:8580
 
 set https_proxy=http://localhost:8580
+
+
+
+docker:
+    mirror-> https://www.daocloud.io/mirror
+
+
+$ docker run hello-world
+
+To try something more ambitious,
+you can run an Ubuntu container with:
+$ docker run -it ubuntu bash
+
+mini image:
+$ docker run -it alpine sh
+
+show images:
+$ docker images
+
+-d background run and print container ID
+-p Publish a container's port(s) to  the host
+$ docker run -d -p 80:80 nginx
+
+$ docker kill [container ID]
+
+process:
+$ docker ps
+
+logs:
+$ docker logs [container ID]

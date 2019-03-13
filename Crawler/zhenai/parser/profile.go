@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-//匹配换行  ([\s\S]*)
+//匹配换行  ([\s\S])
 var infoRe  = regexp.MustCompile(`<div class="des f-cl" data-v-3c42fade>(.*?)</div>`)
 var nameRe = regexp.MustCompile(`<h1 class="nickName" data-v-5b109fc3>(.*?)</h1>`)
 //<div class="des f-cl" data-v-3c42fade>北京 | 27岁 | 硕士 | 未婚 | 177cm | 12001-20000元</div>
